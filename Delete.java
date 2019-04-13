@@ -62,9 +62,12 @@ public class Delete {
         this.results = ps.executeQuery();
     }
     
-    public void DeleteFriend(String username, String password) 
+    public void DeleteFriend(String UserName) 
             throws SQLException{
-        DeleteUser(username, password);
+        String sql = "DELETE * FROM socialnetworkdb.Friend WHERE UserName=?;";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, UserName);
+        this.results = ps.executeQuery();
      
     }
 }
